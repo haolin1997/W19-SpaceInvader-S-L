@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour {
 
+	public int speed = 5000;
+	private Rigidbody2D m_rigidbody;
+
 	// Use this for initialization
 	void Start () {
-		
+		m_rigidbody = this.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Move ();
+	}
+
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.CompareTag ("Wall")) 
+		{
+			Debug.Log ("Collide wall.");
+			GameObject.Find ("Player").GetComponent<PlayerMovement> ().bullet_out = false;
+			Destroy (gameObject);
+		}
+	}
+
+	void Move ()
+	{
+		this.transform.Translate (new Vector2 (0, speed * Time.deltaTime));
 	}
 }

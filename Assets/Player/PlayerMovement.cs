@@ -7,12 +7,13 @@ public class PlayerMovement : MonoBehaviour {
 	public int speed = 5;
 	private Rigidbody2D m_rigidbody;
 	public GameObject bullet_prefeb;
-	private bool bullet_out = false;
+	public bool bullet_out;
 
 
 	// Use this for initialization
 	void Start () {
 		m_rigidbody = this.GetComponent<Rigidbody2D>();
+		bullet_out = false;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void bullet()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && !(bullet_out))
 		{
 			Vector2 AboveMe = this.transform.position + Vector3.up;
 			Instantiate(bullet_prefeb, AboveMe, Quaternion.identity);
