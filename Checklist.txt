@@ -1,0 +1,90 @@
+BASE REQUIREMENTS (20% of final grade): These are the minimum requirements your game must have to get full credit:
+Player (3%)
+Shape (0%)
+The player will be a rectangle roughly 3 units wide and 1 unit tall
+Bullets will be instantiated in the center of the player
+Movement (1%)
+The player can move left & right
+Movement uses the "A", "D", "LeftArrow", and/or "RightArrow" keys
+The player should not be able to move up or down
+The player cannot move past the left/right edges of the screen
+Shooting (1%)
+The player can fire projectiles which travel upwards to kill enemies
+Shooting uses the "Space" key and/or Left Mouse Button
+The player cannot shoot again while a previously fired bullet is still traveling
+Death (1%)
+The player dies when it collides with an enemy bullet
+When the player dies, the player will lose a life
+The player has 3 lives
+If the player loses its 3rd life, the game is over
+Enemies (7%)
+Shape (1%)
+Each individual enemy will be roughly* 1 unit wide and 1 unit tall
+You might make some enemies bigger than others (e.g. lower row enemies are slightly wider)
+Enemies form a grid that is 11 enemies wide and 5 enemies tall
+Enemies are equally spaced apart
+Movement (3%)
+All enemies must move in unison, moving left or right
+Enemies cannot move past the left/right edges of the screen
+Enemy direction changes AND all enemies move down in unison when the furthest enemy on either edge hits a wall
+NOTE: If the player eliminates all enemies from the far left or far right column, the next furthest column of live enemies will act as the new collision detector. Essentially, this means that if the player eliminates all enemies in a far left/right column, the entire group of enemies will have to travel a further distance before they hit a wall.
+If an enemy reaches the bottom of the screen, the game is over
+Shooting (2%)
+The enemies can fire projectiles which travel downwards that kill the player
+The enemies shoot at random intervals (e.g. an inconsistent fire rate)
+When a shot is generated, it will spawn from a randomly chosen column of enemies
+The lowest enemy in the randomly chosen column will do the shooting
+NOTE: If the player eliminates enemies that were lower in the column, the next lowest enemy of that column will be the new shooter. Essentially, this means the enemy bullet will start higher and higher in that column
+Enemy bullets should NOT harm other enemies
+Death (1%)
+An enemy dies when one of the player's bullets collides with it
+When an enemy dies, the player is awarded points:
+Bottom 2 rows of enemies: 10 points
+Middle 2 rows of enemies: 20 points
+Top row of enemies: 40 points
+Game Over (4%)
+The game is over if the player loses all 3 lives (2%)
+The game is over if an enemy reaches the bottom of the screen (2%)
+UI (5%)
+Start Menu (1%)
+The user will be presented with a Start Menu when first loading into the game
+It contains a "Play" and a "Quit" button
+Play starts the game at the first level
+Quit exits the application
+In Game (2%)
+The number of lives the player has remaining is displayed in the top right of the screen
+The player's score is displayed in the top left of the screen
+Game Over (2%)
+A game over UI is displayed when the game is over
+It contains a "Play Again" and a "Quit" button
+Play Again restarts the game at the first level
+Quit exits the application
+Winning (1%)
+The player wins the level when all enemies are eliminated (1%)
+For the purposes of the base-requirements, you can treat the player win however you like (e.g. restart the level at 0 points, restart the level while keeping track of the points, display the game over screen, go to the start menu, close the application, display some sort of "YOU WIN!" UI, etc). The only requirement is that something must happen, you cannot leave the player in an empty level with no enemies. More detailed level-end scenarios are covered in the extra-credit.
+
+EXTRA CREDIT (3%): Implement these extra features for extra credit:
+Shield Bases (1%)
+There are 4 shield bases between the player and the enemies
+They are in the shape of an upside-down "U"
+Each is about 4 units wide and 3 units tall, made up of 10 separate pieces (2 are missing from the bottom)
+Each piece of the 10 pieces of a shield base can take up to 4 damage (either from player or enemy bullets) before that piece is destroyed
+UFO (0.5%)
+A UFO ship will randomly pass by the top of the screen randomly
+This ship will randomly spawn on either the left or right side of the screen and travel to the opposite side
+If the player shoots this ship, they are awarded with a random score of: 100, 150, 200, 250, 300 points
+This UFO does not shoot bullets
+Difficulty Ramp-up and Level Advance (1%)
+As more time progresses in a level, the enemies get faster and shoot more often
+When the player completes a level, they continue to a new level
+The player's score is maintained when transitioning to the next level
+The player is awarded an extra life
+Enemies start in a lower position on later levels
+Pause Menu (0.5%)
+The player can pause the game by pressing Escape
+Pressing Escape again will resume the game and close the Pause UI menu
+When the game is paused, the player and enemies do not move
+A Pause UI menu is displayed
+It contains a "Resume" and "Quit" button
+Resume will unpause the game and closes the menu
+Quit closes the application
