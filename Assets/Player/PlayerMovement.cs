@@ -33,10 +33,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	void bullet()
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && !(bullet_out))
+		if ((Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Mouse0))) && !(bullet_out))
 		{
-			Vector2 AboveMe = this.transform.position + Vector3.up;
-			Instantiate(bullet_prefeb, AboveMe, Quaternion.identity);
+			Vector2 center = this.transform.position;
+			Instantiate(bullet_prefeb, center, Quaternion.identity);
 			bullet_out = true;
 		}
 
