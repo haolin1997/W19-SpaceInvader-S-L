@@ -18,9 +18,9 @@ public class BulletMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.CompareTag ("Wall")) 
+		if (collider.CompareTag ("Wall") || collider.CompareTag("Enemy")) 
 		{
-			Debug.Log ("Collide wall.");
+			Debug.Log ("Collide something.");
 			GameObject.Find ("Player").GetComponent<PlayerMovement> ().bullet_out = false;
 			Destroy (gameObject);
 		}
