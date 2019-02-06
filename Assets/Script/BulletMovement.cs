@@ -20,7 +20,6 @@ public class BulletMovement : MonoBehaviour {
 	{
 		if (collider.CompareTag ("Wall") || collider.CompareTag("Enemy")) 
 		{
-			Debug.Log ("Collide something.");
 			GameObject.Find ("Player").GetComponent<PlayerMovement> ().bullet_out = false;
 			Destroy (gameObject);
 		}
