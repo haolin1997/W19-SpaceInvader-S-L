@@ -10,6 +10,10 @@ public class EnemyGrid : MonoBehaviour
     //敌人阵型
     public Enemy Enemy;
     public Enemy[,] Grid;
+    //子弹
+    public GameObject bullet_prefab;
+    //子弹check
+    public bool bullet_out = false;
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +53,55 @@ public class EnemyGrid : MonoBehaviour
         }
     }
 
+    List<int> avaliable()
+    {
+        List<int> avaliability = new List<int>();
+        for (int x = 0; x < column; x++)
+        {
+            for (int y = 0; y < row; y++)
+            {
+                if (Grid[y, x].isActiveAndEnabled)
+                {
+                    avaliability.Add(x);
+                    break;
+                }
+            }
+        }
+        return avaliability;
+    }
+
+
+    //把老子的意大利炮拉过来！
+    Transform Italy_cannon()
+    {
+        List<int> avalibility = avaliable();
+        int rand = Random.Range(0, avalibility.Count);
+        for (int i = 0; i < row; i++)
+        {
+            if (Grid[i, avalibility[rand]].isActiveAndEnabled)
+            {
+                return Grid[i, avalibility[rand]].transform;
+            }
+        }
+        return null;
+
+    }
+
+    //开炮！开炮！开炮！！！
+    void FIRE()
+    {
+        Vector2 center = Italy_cannon().position;
+        if (!bullet_out)
+        {
+            Instantiate(bullet_prefab, center, Quaternion.identity);
+            bullet_out = true;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        FIRE();
     }
 
 

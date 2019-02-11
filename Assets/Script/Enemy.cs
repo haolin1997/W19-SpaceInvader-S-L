@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour
     public static int destroy_count;
     //跳帧计时器
     private float timer = 0;
+    //向下移动check
+    private static bool down_check = true;
+
 
     // Use this for initialization
     void Start()
@@ -23,20 +26,33 @@ public class Enemy : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-        if (collider.CompareTag("Bullet_player"))
-        {
-            Destroy(gameObject);
-        }
-
-        else if (collider.CompareTag("Wall"))
+        if (collider.CompareTag("Wall"))
         {
             direction = -(direction);
-            //把这个想想办法改成trigger之后只触发一次
-            Camera.main.GetComponent<EnemyGrid>().Grid_Down();
+            if (down_check)
+            {
+                Camera.main.GetComponent<EnemyGrid>().Grid_Down();
+                down_check = false;
+            }
         }
+        if (collider.CompareTag("Bullet_player"))
+        {
+            gameObject.SetActive(false);
+            destroy_count += 1;
+        }
+
+ 
 	}
 
-	void Move ()
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Wall"))
+            {
+            down_check = true;
+            }
+    }
+
+    void Move ()
 	{
         //每秒跳一次
         if (timer > 1)
