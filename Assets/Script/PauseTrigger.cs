@@ -10,6 +10,7 @@ public class PauseTrigger : MonoBehaviour
 
     public GameObject PauseMenu;
     bool IsPaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,17 +27,26 @@ public class PauseTrigger : MonoBehaviour
         }
     }
 
-    void TriggerPause()
+    public void TriggerPause()
     {
         IsPaused = !IsPaused;
         if (IsPaused){
             Time.timeScale = 0;
-            //PauseMenu.SetActive = true;
+            PauseMenu.SetActive(true);
         }
         else{
             Time.timeScale = 1;
-            //PauseMenu.SetActive = false;
+            PauseMenu.SetActive(false);
         }
+    }
+
+    public void ResumeButton()
+    {
+        if (IsPaused)
+        {
+            Time.timeScale = 1;
+            PauseMenu.SetActive(false);
+        } 
     }
 }
 

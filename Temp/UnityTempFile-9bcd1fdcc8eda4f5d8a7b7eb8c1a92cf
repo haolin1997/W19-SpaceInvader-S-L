@@ -108,7 +108,6 @@
 -define:PLATFORM_ARCH_64
 -define:UNITY_64
 -define:UNITY_INCLUDE_TESTS
--define:UNITY_ANALYTICS
 -define:ENABLE_AUDIO
 -define:ENABLE_CACHING
 -define:ENABLE_CLOTH
@@ -196,6 +195,8 @@
 "Assets/Script/Bullet_Player.cs"
 "Assets/Script/EnemyGrid.cs"
 "Assets/Script/EnemyMovement.cs"
+"Assets/Script/Life.cs"
+"Assets/Script/PauseTrigger.cs"
 "Assets/Script/PlayerMovement.cs"
 "Assets/Script/Score.cs"
 "Assets/Script/UI_Manager.cs"

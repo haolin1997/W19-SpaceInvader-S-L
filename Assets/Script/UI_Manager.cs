@@ -21,4 +21,17 @@ public class UI_Manager : MonoBehaviour
         Application.Quit();
     }
 
+    public void ResumeButton()
+    {
+        /*
+        if (PauseTrigger.IsPaused)
+        {
+            Time.timeScale = 1;
+            PauseTrigger.PauseMenu.SetActive(false);
+        }
+        */
+        //PauseTrigger.TriggerPause();
+                    
+    }
+
 }
