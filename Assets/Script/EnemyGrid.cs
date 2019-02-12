@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyGrid : MonoBehaviour
 {
@@ -85,8 +86,8 @@ public class EnemyGrid : MonoBehaviour
                 return Grid[i, avalibility[rand]].transform;
             }
         }
+        SceneManager.LoadScene("Winner");
         return null;
-
     }
 
     //开炮！开炮！开炮！！！

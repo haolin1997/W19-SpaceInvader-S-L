@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -34,20 +35,18 @@ public class EnemyMovement : MonoBehaviour
             gameObject.SetActive(false);
             if (row <= 1)
             {
-                destroy_count += 1;
+                destroy_count += 10;
             }
             else if (row <= 3)
             {
-                destroy_count += 2;
+                destroy_count += 20;
             }
             else
             {
-                destroy_count += 4;
+                destroy_count += 40;
             }
         }
-
- 
-	}
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -92,6 +91,10 @@ public class EnemyMovement : MonoBehaviour
         Vector2 new_position = this.transform.position;
         new_position.y = this.transform.position.y - 1;
         this.transform.position = new_position;
+        if (this.transform.position.y <= -6)
+        {
+            SceneManager.LoadScene("Game Over");
+        }
     }
 
 

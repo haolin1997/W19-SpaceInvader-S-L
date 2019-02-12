@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet_Enemy : MonoBehaviour
 {
-    public int speed = -5;
+    public int speed = -3;
     private Rigidbody2D m_rigidbody;
 
     // Use this for initialization
