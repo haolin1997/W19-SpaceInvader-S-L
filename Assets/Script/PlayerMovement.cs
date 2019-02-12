@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 	private Rigidbody2D m_rigidbody;
 	public GameObject bullet_prefeb;
 	public static bool bullet_out = false;
-    public static int life = 100;
+    public static int life = 3;
 
 
 	// Use this for initialization
