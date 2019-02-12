@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour {
+
+public class Bullet_Player : MonoBehaviour
+{
 
 	public int speed = 5;
 	private Rigidbody2D m_rigidbody;
@@ -16,14 +18,14 @@ public class BulletMovement : MonoBehaviour {
 		Move ();
 	}
 
-	void OnTriggerEnter2D(Collider2D collider)
-	{
-		if (collider.CompareTag ("Wall") || collider.CompareTag("Enemy")) 
-		{
-			GameObject.Find ("Player").GetComponent<PlayerMovement> ().bullet_out = false;
-			Destroy (gameObject);
-		}
-	}
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Wall") || collider.CompareTag("Enemy"))
+        {
+            GameObject.Find("Player").GetComponent<PlayerMovement>().bullet_out = false;
+            Destroy(gameObject);
+        }
+    }
 
 	void Move ()
 	{
