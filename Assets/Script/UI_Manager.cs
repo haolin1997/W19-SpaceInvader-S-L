@@ -10,7 +10,7 @@ public class UI_Manager : MonoBehaviour
     public void StartButton()
     {
         EnemyMovement.destroy_count = 0;
-        PlayerMovement.life = 2;
+        PlayerMovement.life = 3;
         PlayerMovement.bullet_out = false;
         EnemyGrid.bullet_out = false;
         SceneManager.LoadScene("Level1");
