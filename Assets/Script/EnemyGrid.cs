@@ -106,6 +106,10 @@ public class EnemyGrid : MonoBehaviour
     void Update()
     {
         FIRE();
+        if (EnemyMovement.destroy_count == 1100)
+        {
+            SceneManager.LoadScene("Winner");
+        }
     }
 
 
