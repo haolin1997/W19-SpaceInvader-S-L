@@ -17,7 +17,6 @@ public class LifeScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int destory_count = GameObject.Find("Enemy").GetComponent<EnemyMovement>().destory_count;
-        tm.text = string.Format("Score: {0:0}", destory_count );
+        tm.text = string.Format("Score: {0:0}", EnemyMovement.destroy_count);
     }
 }

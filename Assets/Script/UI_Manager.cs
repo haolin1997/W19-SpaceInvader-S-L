@@ -9,6 +9,8 @@ public class UI_Manager : MonoBehaviour
 
     public void StartButton()
     {
+        EnemyMovement.destroy_count = 0;
+        PlayerMovement.life = 2;
         SceneManager.LoadScene("Level1");
     }
 

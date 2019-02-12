@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private static int direction = 1;
     //destroy_count是给计分器留的参数
-    public static int destroy_count;
+    public static int destroy_count = 0;
     //跳帧计时器
     private float timer = 0;
     //向下移动check

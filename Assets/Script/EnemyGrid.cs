@@ -8,12 +8,12 @@ public class EnemyGrid : MonoBehaviour
     public int row;
     public int column;
     //敌人阵型
-    public Enemy Enemy;
-    public Enemy[,] Grid;
+    public EnemyMovement Enemy;
+    public EnemyMovement[,] Grid;
     //子弹
     public GameObject bullet_prefab;
     //子弹check
-    public bool bullet_out = false;
+    public static bool bullet_out = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class EnemyGrid : MonoBehaviour
         //在升级关卡时改成函数调参来调整阵型
         row = 5;
         column = 11;
-        Grid = new Enemy[row, column];
+        Grid = new EnemyMovement[row, column];
         //向Grid里填充Enemy
         for (int x = 0; x < column; x++)
         {

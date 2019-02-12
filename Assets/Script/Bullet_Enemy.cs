@@ -22,14 +22,14 @@ public class Bullet_Enemy : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            GameObject.Find("Player").GetComponent<PlayerMovement>().life -= 1;
-            Camera.main.GetComponent<EnemyGrid>().bullet_out = false;
+            PlayerMovement.life -= 1;
+            EnemyGrid.bullet_out = false;
             Destroy(gameObject);
         }
 
         else if (collider.CompareTag("Wall"))
         {
-            Camera.main.GetComponent<EnemyGrid>().bullet_out = false;
+            EnemyGrid.bullet_out = false;
             Destroy(gameObject);
         }
     }
