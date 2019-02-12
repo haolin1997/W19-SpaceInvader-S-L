@@ -58,36 +58,43 @@ public class EnemyGrid : MonoBehaviour
 
     List<int> avaliable()
     {
-        List<int> avaliability = new List<int>();
+        List<int> availability = new List<int>();
         for (int x = 0; x < column; x++)
         {
             for (int y = 0; y < row; y++)
             {
                 if (Grid[y, x].isActiveAndEnabled)
                 {
-                    avaliability.Add(x);
+                    availability.Add(x);
                     break;
                 }
             }
         }
-        return avaliability;
+        return availability;
     }
 
 
     //把老子的意大利炮拉过来！
     Transform Italy_cannon()
     {
-        List<int> avalibility = avaliable();
-        int rand = Random.Range(0, avalibility.Count);
-        for (int i = 0; i < row; i++)
+        List<int> availability = avaliable();
+        if (availability.Count == 0)
         {
-            if (Grid[i, avalibility[rand]].isActiveAndEnabled)
+            SceneManager.LoadScene("Winner");
+            return this.transform;
+        }
+        else
+        {
+            int rand = Random.Range(0, availability.Count);
+            for (int i = 0; i < row; i++)
             {
-                return Grid[i, avalibility[rand]].transform;
+                if (Grid[i, availability[rand]].isActiveAndEnabled)
+                {
+                    return Grid[i, availability[rand]].transform;
+                }
             }
         }
-        SceneManager.LoadScene("Winner");
-        return null;
+        return this.transform;
     }
 
     //开炮！开炮！开炮！！！

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet_Player : MonoBehaviour
 {
 
-	public int speed = 5;
+    private int speed = 5;
 	private Rigidbody2D m_rigidbody;
 
 	// Use this for initialization
