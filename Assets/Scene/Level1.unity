@@ -567,7 +567,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189687984}
-  - component: {fileID: 189687985}
   m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -592,19 +591,6 @@ Transform:
   m_Father: {fileID: 1713330002}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &189687985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189687983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd4f9b17ee4f46daa2f764355e3b353, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 189687983}
 --- !u!1 &232674911
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +782,6 @@ MonoBehaviour:
   speed: 5
   bullet_prefeb: {fileID: 1606947381342964, guid: bc82d3e10e0b44551a46fb5027e52062,
     type: 3}
-  bullet_out: 0
 --- !u!212 &477856289
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1386,7 +1371,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1241181625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1713330003}
+        m_MethodName: ResumeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1241181625
@@ -1738,7 +1734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd4f9b17ee4f46daa2f764355e3b353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 189687983}
 --- !u!1 &1740843566
 GameObject:
   m_ObjectHideFlags: 0
