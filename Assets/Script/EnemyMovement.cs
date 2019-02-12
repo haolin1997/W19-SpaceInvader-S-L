@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnemyMovement : MonoBehaviour
 {
     private static int direction = 1;
+    private static int change_direction = 0;
     //destroy_count是给计分器留的参数
     public static int destroy_count = 0;
     //跳帧计时器
@@ -46,13 +47,20 @@ public class EnemyMovement : MonoBehaviour
                 destroy_count += 40;
             }
         }
+        if (collider.CompareTag("Wall"))
+        {
+            if (change_direction == 0)
+            {
+                direction = -(direction);
+                change_direction += 1;
+            }
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Wall"))
         {
-            direction = -(direction);
             if (down_check)
             {
                 Camera.main.GetComponent<EnemyGrid>().Grid_Down();
@@ -66,6 +74,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.CompareTag("Wall"))
             {
             down_check = true;
+            change_direction = 0;
             }
     }
 
