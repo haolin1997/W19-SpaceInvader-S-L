@@ -18,6 +18,6 @@ public class Life : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tm.text = string.Format("Life: {0:0}", PlayerMovement.life+1);
+        tm.text = string.Format("Life: {0:0}", PlayerMovement.life);
     }
 }
