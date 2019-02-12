@@ -11,6 +11,9 @@ public class EnemyMovement : MonoBehaviour
     private float timer = 0;
     //向下移动check
     private static bool down_check = true;
+    //自身位置
+    public int row;
+    public int column;
 
 
     // Use this for initialization
@@ -24,9 +27,31 @@ public class EnemyMovement : MonoBehaviour
         Move();
     }
 
-	void OnTriggerEnter2D(Collider2D collider)
+	private void OnTriggerEnter2D(Collider2D collider)
 	{
-        if (collider.CompareTag("Wall"))
+        if (collider.CompareTag("Bullet_player"))
+        {
+            gameObject.SetActive(false);
+            if (row <= 1)
+            {
+                destroy_count += 1;
+            }
+            else if (row <= 3)
+            {
+                destroy_count += 2;
+            }
+            else
+            {
+                destroy_count += 4;
+            }
+        }
+
+ 
+	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Wall"))
         {
             direction = -(direction);
             if (down_check)
@@ -35,14 +60,7 @@ public class EnemyMovement : MonoBehaviour
                 down_check = false;
             }
         }
-        if (collider.CompareTag("Bullet_player"))
-        {
-            gameObject.SetActive(false);
-            destroy_count += 1;
-        }
-
- 
-	}
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {

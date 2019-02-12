@@ -22,7 +22,7 @@ public class Bullet_Player : MonoBehaviour
     {
         if (collider.CompareTag("Wall") || collider.CompareTag("Enemy"))
         {
-            GameObject.Find("Player").GetComponent<PlayerMovement>().bullet_out = false;
+            PlayerMovement.bullet_out = false;
             Destroy(gameObject);
         }
     }

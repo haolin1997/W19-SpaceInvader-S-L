@@ -11,6 +11,8 @@ public class UI_Manager : MonoBehaviour
     {
         EnemyMovement.destroy_count = 0;
         PlayerMovement.life = 2;
+        PlayerMovement.bullet_out = false;
+        EnemyGrid.bullet_out = false;
         SceneManager.LoadScene("Level1");
     }
 

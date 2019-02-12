@@ -37,6 +37,8 @@ public class EnemyGrid : MonoBehaviour
             {
                 Vector2 enemy_pos = new Vector2(x - 5, y);
                 Grid[y, x].transform.position = enemy_pos;
+                Grid[y, x].row = y;
+                Grid[y, x].column = x;
                 Grid[y, x] = Instantiate(Grid[y, x]);
             }
         }
@@ -91,7 +93,8 @@ public class EnemyGrid : MonoBehaviour
     void FIRE()
     {
         Vector2 center = Italy_cannon().position;
-        if (!bullet_out)
+        float rand = Random.value;
+        if (!bullet_out && rand < 0.5)
         {
             Instantiate(bullet_prefab, center, Quaternion.identity);
             bullet_out = true;

@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour {
 	public int speed = 5;
 	private Rigidbody2D m_rigidbody;
 	public GameObject bullet_prefeb;
-	public bool bullet_out;
-    public static int life = 2;
+	public static bool bullet_out = false;
+    public static int life = 3;
 
 
 	// Use this for initialization
